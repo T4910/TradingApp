@@ -8,8 +8,9 @@ export default async function handler(req, res){
   const user = await prisma.user.create({
     data: {
       firstName: req.body.surname,
-      lastName: req.body.username,
-      password: await bcrypt.hash(req.body.password, 10)
+      lastName: req.body.orignalname,
+      password: await bcrypt.hash(req.body.password, 10),
+      email: req.body.email
     },
   })
 
