@@ -7,8 +7,8 @@ export default function page() {
     <>
         <NavBar />
         <div className='heading' style={{display: 'inline'}}>
-          <h3 >Looking for a place to test your trading skills.</h3>
-          <p>*App name* has got you coveered.</p>
+          <h3 className="text-3xl font-bold underline">Looking for a place to test your trading skills.</h3>
+          <p className="text-3xl font-bold underline">*App name* has got you coveered.</p>
         </div>
         <div>
           *App name* is a trading simulator app that enables you 

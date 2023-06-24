@@ -1,12 +1,17 @@
-import Session from '../app/(components)/sessionProvider'
+'use client'
+// import Session from '../app/(components)/sessionProvider'
+import '../public/styles/global.css'
+import { SessionProvider } from 'next-auth/react';
 
 
 export default function RootLayout({ children }) {
     return (
       <html lang="en">
         <head />
-        <body style={{margin: '0px'}}>
-            <Session>{children}</Session>
+        <body>
+          <SessionProvider>
+            {children}
+          </SessionProvider>
         </body>
       </html>
     );
