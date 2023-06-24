@@ -1,52 +1,70 @@
 'use client'
-import {useState} from 'react'
-import Modal from '../../(components)/modal'
+import {useRef} from 'react'
 import NavBar from "../../(components)/NavBar"
 import useBasicToggle from '../../(components)/hooks/useBasicToggle'
-
+import useAlertPopup from '../../(components)/hooks/useAlertPopup'
+import {signIn} from 'next-auth/react'
 
 export default function page() {
-    // const [modalState, toggleModalState, forceModalState] = useBasicToggle(false)
+    const emailBox = useRef()
+    const passwordBox = useRef()
+    const [PopUp, setPopUp] = useAlertPopup()
 
-    const [loginDetails, setLoginDetails] = useState({
-        username: '',
-        password: ''
-    })
-
-    function LOGIN(e){
+    async function LOGIN(e){
         e.preventDefault()
-
-        const {username, password} = loginDetails
         
-        if((username || password) == ''){
-            // forceModalState(true)
-            return
+        const loginDetails = {
+            email: emailBox.current.value, 
+            password: passwordBox.current.value
         }
+        console.log('signing in ...', loginDetails)
+        
+        // email validation
+        const emailRegex = "([!#-'*+/-9=?A-Z^-~-]+(\.[!#-'*+/-9=?A-Z^-~-]+)*|\"\(\[\]!#-[^-~ \t]|(\\[\t -~]))+\")@([!#-'*+/-9=?A-Z^-~-]+(\.[!#-'*+/-9=?A-Z^-~-]+)*|\[[\t -Z^-~]*])"
+        if (!loginDetails.email.match(emailRegex)){
+            console.log('wrong email')
 
-        console.log(loginDetails)
+            return setPopUp({
+                description: 'error',
+                visibility: true,
+                content: 'Invalid Email address'
+            })
+        } 
+            
+
+
+        let user = await signIn('credentials', {
+            redirect: true,
+            callbackUrl: `${process.env.NEXT_PUBLIC_NEXTAUTH_URL}/dashboard`,
+            ...loginDetails
+        })
+        console.log('USer: ',user)
+        console.log(signIn)
+
+
     }
 
   return (
     <div>
         <NavBar/>
         <h2>Log in</h2>
-        {/* <Modal 
-            type='warning' 
-            style={{display: (modalState ? 'block' : 'none')}}
-            onClick={toggleModalState()}>Green</Modal> */}
-        <form onSubmit={LOGIN}>
+        <PopUp></PopUp>
+        <form onSubmit={(e) => LOGIN(e)}>
+            <label htmlFor="email">Email: </label>
             <input 
-                name="username"
+                className=''
+                name="email"
                 type="text" 
-                value={loginDetails.username}
-                onChange={(e) => setLoginDetails({...loginDetails, username: e.target.value})}/>
+                ref={emailBox}
+                autoComplete='true'/>
+            <label htmlFor="password">Password: </label>
             <input 
                 name="password"                 
                 type="password"
-                value={loginDetails.password}
-                onChange={(e) => setLoginDetails({...loginDetails, password: e.target.value})}/>
+                ref={passwordBox}
+                autoComplete='true'/>
             <input type="submit" />
-            <button>GOOGLE BTN tobeadded</button>
+            <button onClick={() => signIn('google')}>GOOGLE BTN tobeadded</button>
         </form>
     </div>
   )

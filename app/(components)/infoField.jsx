@@ -13,5 +13,6 @@ export default function infoField({children, visibility, description, settingFun
 const descColor = {
     info: 'blue',
     error: 'red',
-    warning: 'yellow'
+    warning: 'yellow',
+    good: 'green'
 }
