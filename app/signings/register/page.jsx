@@ -2,25 +2,24 @@
 import {useState, useRef, useEffect} from 'react'
 import NavBar from "../../(components)/NavBar"
 import InfoField from '../../(components)/infoField'
-import useFetch from '../../(components)/hooks/useFetch'
+import {signIn} from 'next-auth/react'
 
-// password validation
-// email validation
 
 async function REGISTER(e, details, changeState){
     e.preventDefault()
     console.log('Registering...')
 
+    // fix popup state so that it only runs when the user as started typing...
     // empty field validation
-    if (details.surname === '' || details.firstname === '' || 
-        details.password === '' || details.email === '' ) return changeState({
-                description: 'warning', 
-                visibility: true, 
-                content: 'missing fields'
-    })
+    if (details.surname === '' || details.firstname === '' || details.password === '' || details.email === '' ){
+        return changeState({
+                   description: 'warning', 
+                   visibility: true, 
+                   content: 'missing fields'
+       })
+    }
 
-
-    // email verification
+    // TODO: email verification
     
     // create User
     const createUserRes = await fetch('/api/signing/register',{
@@ -28,11 +27,29 @@ async function REGISTER(e, details, changeState){
         method: 'POST',
         body: JSON.stringify(details)
     })
-    const createUserdata = await createUserRes.json()
-    console.log(createUserdata)
+    const {userCreated} = await createUserRes.json()
+
+    // DONE: safe fail check for if user was created
+    // DONE: a popup message depicting whether something went wrong...
+    if(!userCreated) return changeState({
+        description: 'error', 
+        visibility: true, 
+        content: 'Something went wrong!'
+    })
+
+
+    // TODO: identifier for if user is a newUser should be added (in Next-Auth documentation)
+    await signIn('credentials', {
+        redirect: true,
+        callbackUrl: `${process.env.NEXT_PUBLIC_NEXTAUTH_URL}/dashboard`,
+        email: details.email,
+        password: details.password,
+    })
 }
 
 export default function page() {
+    // TODO: fix problem of surname and lastname field state
+    // TODO: fix the surname firstname problem in database (if possible)
     const surnameRef = useRef()
     const firstnameRef = useRef()
     const [password, setPassword] = useState('')
