@@ -1,13 +1,15 @@
 'use client'
 import {useRef} from 'react'
-import NavBar from "../../(components)/NavBar"
-import useBasicToggle from '../../(components)/hooks/useBasicToggle'
-import useAlertPopup from '../../(components)/hooks/useAlertPopup'
 import {signIn} from 'next-auth/react'
+import {useRouter} from 'next/navigation'
+import NavBar from "../../(components)/NavBar"
+import useAlertPopup from '../../(components)/hooks/useAlertPopup'
 
 export default function page() {
+    const router = useRouter()
     const emailBox = useRef()
     const passwordBox = useRef()
+
     const [PopUp, setPopUp] = useAlertPopup()
 
     async function LOGIN(e){
@@ -17,7 +19,6 @@ export default function page() {
             email: emailBox.current.value, 
             password: passwordBox.current.value
         }
-        console.log('signing in ...', loginDetails)
         
         // email validation
         const emailRegex = "([!#-'*+/-9=?A-Z^-~-]+(\.[!#-'*+/-9=?A-Z^-~-]+)*|\"\(\[\]!#-[^-~ \t]|(\\[\t -~]))+\")@([!#-'*+/-9=?A-Z^-~-]+(\.[!#-'*+/-9=?A-Z^-~-]+)*|\[[\t -Z^-~]*])"
@@ -31,24 +32,35 @@ export default function page() {
             })
         } 
             
+        // Sign In
+        // TODO: NOT POSSIBLE use next.js redirect instead of callback
+        // DONE: make popup alert for 'no user found' or 'invalid password' ('invalid user or password. Try again') 
+        // DONE: make popup alert for any other error that occurs on server 
+        let {ok: itSignedIn } = await signIn('credentials', {redirect: false, ...loginDetails})
+        console.log(itSignedIn);
+        if(itSignedIn){
+            router.replace(`${process.env.NEXT_PUBLIC_NEXTAUTH_URL}/dashboard`);
+            return
+        } 
 
-
-        let user = await signIn('credentials', {
-            redirect: true,
-            callbackUrl: `${process.env.NEXT_PUBLIC_NEXTAUTH_URL}/dashboard`,
-            ...loginDetails
+        setPopUp({
+            description: 'error',
+            visibility: true,
+            content: 'Invalid user or password. Try again.'
         })
-        console.log('USer: ',user)
-        console.log(signIn)
-
-
+        
+        setPopUp({
+            description: 'error',
+            visibility: true,
+            content: 'Problem with Server. Try again later.'
+        })
     }
 
   return (
     <div>
         <NavBar/>
         <h2>Log in</h2>
-        <PopUp></PopUp>
+        <PopUp />
         <form onSubmit={(e) => LOGIN(e)}>
             <label htmlFor="email">Email: </label>
             <input 
