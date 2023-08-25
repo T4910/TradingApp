@@ -1,16 +1,21 @@
 'use client'
-import {useRef} from 'react'
-import {signIn} from 'next-auth/react'
+import {useRef, useEffect} from 'react'
+import {signIn, useSession} from 'next-auth/react'
 import {useRouter} from 'next/navigation'
 import NavBar from "../../(components)/NavBar"
 import useAlertPopup from '../../(components)/hooks/useAlertPopup'
 
 export default function page() {
     const router = useRouter()
+    const {data: session} = useSession()
+    useEffect(() => session && router.replace(`${process.env.NEXT_PUBLIC_NEXTAUTH_URL}/dashboard`), [session])
+
+
     const emailBox = useRef()
     const passwordBox = useRef()
-
     const [PopUp, setPopUp] = useAlertPopup()
+ 
+
 
     async function LOGIN(e){
         e.preventDefault()

@@ -1,8 +1,9 @@
 'use client'
 import {useState, useRef, useEffect} from 'react'
 import NavBar from "../../(components)/NavBar"
+import {useRouter} from 'next/navigation'
 import InfoField from '../../(components)/infoField'
-import {signIn} from 'next-auth/react'
+import {signIn, useSession} from 'next-auth/react'
 
 
 async function REGISTER(e, details, changeState){
@@ -48,6 +49,11 @@ async function REGISTER(e, details, changeState){
 }
 
 export default function page() {
+    const router = useRouter()
+    const {data: session} = useSession()
+    useEffect(() => session && router.replace(`${process.env.NEXT_PUBLIC_NEXTAUTH_URL}/dashboard`), [session])
+
+
     // TODO: fix problem of surname and lastname field state
     // TODO: fix the surname firstname problem in database (if possible)
     const surnameRef = useRef()

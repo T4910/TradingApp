@@ -1,38 +1,36 @@
 'use client'
 import NavBar from '../(components)/NavBar'
 import Footer from '../(components)/Footer'
+import SideBar from '../(components)/sideBar'
 import {useSession} from 'next-auth/react'
 import { createContext, useEffect, useState } from 'react'
 
 // TODO: Prevent users from going back to prohibited pages
 // TODO: Make loading signs for the loading components
 // TODO: Prevent entry into dashboard page without authentication
-// TODO: Make user id availabe to all components and sub-pages by using react context hook
-// TODO: change NavBar and Footer when authenticated...
+// DONE: Make user id availabe to all components and sub-pages by using react context hook
+// DONE: change NavBar and Footer when authenticated...
 // TODO: Put a sidebar
 
 export const IDContext = createContext(null) 
 
 export default function page() {
-  // TODO: get session on server side   IMPOSSIBLE
+  // TODO: get session on server side   NOT POSSIBLE
   let {data} = useSession()
   console.log('Sessions on Dashboard: ', data?.user.id)
 
   let [ID, setID] = useState(data?.user.id)
-
-  useEffect(() => {
-    setID(data?.user.id)
-    console.log('state: ',data?.user.id)
-  }, [data?.user.id])
+  useEffect(() => setID(data?.user.id), [data?.user.id])
 
   return (
-    <>
     <IDContext.Provider value={ID}>
-      <NavBar auth={true}/>
-      <div>this is the dashboard</div>
-      <Footer />
+      <div>
+        <NavBar auth={true} />
+        <SideBar/>
+        <div>this is the dashboard</div>
+        <Footer />
+      </div>
     </IDContext.Provider>
-    </>
   )
 }
 
