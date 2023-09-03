@@ -6,8 +6,22 @@ module.exports = {
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
   ],
+  darkMode: 'media',
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        primary: "#3198CC",
+        secondary: "#54D4CA",
+        black: "#060D1A",
+        gray: {
+          75: "#414750",
+          50: "#7D8087",
+          25: "#B9BBBE",
+          10: "#DEDEE0",
+          5: "#E9EAEA",
+        }
+      }
+    },
   },
   plugins: [],
 }
