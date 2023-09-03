@@ -1,53 +1,52 @@
 'use client'
-import Link from 'next/link'
-import LogOut from './logOutBtn'
-import {useSession} from 'next-auth/react'
+import PhoneNavBar from './phoneNavBar'
+import useMediaQuery from "./hooks/useMediaQuery"
+
 import {useRouter} from 'next/navigation'
 
 
 
-export default function NavBar({auth, page}) {
-  const {data} = useSession()
-  const router = useRouter()
 
-
-  const unAuthenticatedNavBar =     
-  <>
-    <li>Logo</li>
-    <li><Link href="/signings/login">Sign in</Link></li>
-    <li><Link href="/signings/register">Sign up</Link></li>
-    <li><Link href="/about">About</Link></li>
-  </>        
-
-  const authenticatedNavBar = 
-  <>
-    <li>Logo</li>
-    {(page == 'startPage') ? 
-      <button onClick={() => router.replace(`${process.env.NEXT_PUBLIC_NEXTAUTH_URL}/dashboard`)}>Dashboard</button> 
-      : <LogOut />} 
-  </>
-
-  // const listinNavBar = 
-  // <>  
-  //   <li>Logo</li>
-    
-  //   if(page == 'dashboard') <LogOut />
-  //   if(page == 'startPage' && data) 
-
-  //   <li><Link href="/signings/login">Sign in</Link></li>
-  //   <li><Link href="/signings/register">Sign up</Link></li>
-  //   <li><Link href="/about">About</Link></li>
-  // </>
+export default function NavBar({page}) {
+  const isMobile = useMediaQuery('sm')
+  // const isAlsoMobile = useMediaQuery('sm')
+  const isTablet = useMediaQuery('md')
+  const isDesktop = useMediaQuery('lg')
 
   return (
-    <div style={{backgroundColor: '#FAFAFA'}}>
-        <ul>
-          {(auth || (page == 'startPage' && data)) ? authenticatedNavBar : unAuthenticatedNavBar}
-        </ul>
-        ID: {data?.user.id}
+    <div className="flex flex-col px-4 py-2 border-b">
+      {isMobile ? <PhoneNavBar /> : 'not phone'}  
     </div>
   )
 }
 
-let Dashboard = () => <button onClick={() => router.replace(`${process.env.NEXT_PUBLIC_NEXTAUTH_URL}/dashboard`)}>Dashboard</button>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+let AlightBtn = (toggle) => {
+  return (
+    toggle && <button 
+      className="bg-primary font-bold p-1 rounded-xl"
+      onClick={() => router.replace(`${process.env.NEXT_PUBLIC_NEXTAUTH_URL}/dashboard`)}
+    >
+      Dashboard
+    </button>
+)}
+
+
 
