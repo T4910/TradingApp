@@ -3,9 +3,6 @@ import PhoneNavBar from './phoneNavBar'
 import useMediaQuery from "./hooks/useMediaQuery"
 
 
-
-
-
 export default function NavBar({page}) {
   const isMobile = useMediaQuery('sm')
   // const isAlsoMobile = useMediaQuery('sm')
@@ -13,7 +10,7 @@ export default function NavBar({page}) {
   const isDesktop = useMediaQuery('lg')
 
   return (
-    <div className="flex flex-col px-4 py-4 border-b fixed w-screen bg-gray-5 top-0">
+    <div className="flex flex-col px-4 py-4 border-b fixed w-screen bg-gray-5 top-0 z-10">
       {isMobile ? <PhoneNavBar /> : 'not phone'}  
     </div>
   )
