@@ -2,7 +2,6 @@
 import PhoneNavBar from './phoneNavBar'
 import useMediaQuery from "./hooks/useMediaQuery"
 
-import {useRouter} from 'next/navigation'
 
 
 
@@ -14,7 +13,7 @@ export default function NavBar({page}) {
   const isDesktop = useMediaQuery('lg')
 
   return (
-    <div className="flex flex-col px-4 py-2 border-b">
+    <div className="flex flex-col px-4 py-4 border-b fixed w-screen bg-gray-5 top-0">
       {isMobile ? <PhoneNavBar /> : 'not phone'}  
     </div>
   )
