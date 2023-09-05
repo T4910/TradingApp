@@ -7,11 +7,11 @@ const DropDown = ({visibility, auth}) => {
     const isHidden = visibility ? '' : 'hidden'
     console.log(visibility, `flex flex-col ${isHidden}`)
     return(
-        <div className={`flex flex-col ${isHidden}`}>
-            {!auth?.user && <Link href="/">Home</Link>}
-            {!auth?.user && <Link href="/signings/login">Sign in</Link>}
-            {!auth?.user && <Link href="/signings/register">Sign up</Link>}
-            <Link href="/about">About Dev</Link>
+        <div className={`flex flex-col mt-4 ${isHidden}`}>
+            {!auth?.user && <Link href="/" className='mb-1'>Home</Link>}
+            {!auth?.user && <Link href="/signings/login" className='mb-1'>Sign in</Link>}
+            {!auth?.user && <Link href="/signings/register" className='mb-1'>Sign up</Link>}
+            <Link href="/about" className='mb-1'>About Dev</Link>
             {auth?.user && <LogOut />}
         </div>
     )
