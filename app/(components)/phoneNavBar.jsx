@@ -15,6 +15,9 @@ export default function phoneNavBar() {
         <div>
             <div className="flex justify-between">
                 <Image src="/images/3-19.jpg" width={10} height={10} alt="Logo"/>   
+                <div>
+                    ID: {data?.user.id}
+                </div>
                 <button onClick={() => setShowDD(!showDD)}><SlMenu /></button>
             </div>
             <DropDown visibility={showDD} auth={data}/>

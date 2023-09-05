@@ -3,9 +3,7 @@ import Link from 'next/link'
 
 
 const DropDown = ({visibility, auth}) => {
-    console.log(visibility)
     const isHidden = visibility ? '' : 'hidden'
-    console.log(visibility, `flex flex-col ${isHidden}`)
     return(
         <div className={`flex flex-col mt-4 ${isHidden}`}>
             {!auth?.user && <Link href="/" className='mb-1'>Home</Link>}
