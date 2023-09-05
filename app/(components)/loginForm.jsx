@@ -49,7 +49,7 @@ export default function loginForm() {
         // TODO: NOT POSSIBLE use next.js redirect instead of callback
         // DONE: make popup alert for 'no user found' or 'invalid password' ('invalid user or password. Try again') 
         // DONE: make popup alert for any other error that occurs on server 
-        let {ok: itSignedIn } = await signIn('credentials', {redirect: `${process.env.NEXT_PUBLIC_NEXTAUTH_URL}/dashboard`, ...loginDetails})
+        let {ok: itSignedIn } = await signIn('credentials', {redirect: true, callbackUrl: `${process.env.NEXT_PUBLIC_NEXTAUTH_URL}/dashboard`, ...loginDetails})
         console.log(itSignedIn);
         if(itSignedIn) return // router.push(`${process.env.NEXT_PUBLIC_NEXTAUTH_URL}/dashboard`);
 
