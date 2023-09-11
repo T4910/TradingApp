@@ -14,6 +14,7 @@ const Component = ({children, isShown, status, setData}) => {
         <div className={`flex justify-between my-4 mx-auto w-[80vw] ${visible} mx-8 rounded ${colorstatus[status]}`}>
             <div className="p-4 py-2">{children}</div>
             <button className="p-4 py-2" onClick={() => setData((data) => {
+                console.log('j: ', data)
                 return {...data, isShown: false}
             })}>x</button>
         </div>

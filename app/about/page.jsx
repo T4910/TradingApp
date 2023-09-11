@@ -5,7 +5,7 @@ import EmailContact from '../(components)/emailContact'
 
 export default function page() {
   return (
-    <>
+    <div className='mt-10 pt-10'>
       <NavBar />
       <div>
           <p>Hey, I'm Emmanuel. The cretor of this website</p>
@@ -20,6 +20,6 @@ export default function page() {
           <EmailContact />
           <Footer />
       </div>
-    </>
+    </div>
   )
 }

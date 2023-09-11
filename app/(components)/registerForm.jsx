@@ -93,11 +93,10 @@ export default function registerForm({setFlashData}) {
             method: 'POST',
             body: JSON.stringify(details)
         })
-        const {userCreated} = await createUserRes.json()
     
         // DONE: safe fail check for if user was created
         // DONE: a popup message depicting whether something went wrong...
-        if(!userCreated) return setFlashData({
+        if(!createUserRes.ok) return setFlashData({
             status: 'error', 
             isShown: true, 
             content: 'Something went wrong!'
@@ -114,15 +113,15 @@ export default function registerForm({setFlashData}) {
     }
 
     return (
-        <form className='flex flex-col' onSubmit={(e) => REGISTER(e)}>
+        <form className='flex flex-col mb-6' onSubmit={(e) => REGISTER(e)}>
             <input className='w-[72vw] p-2 px-4 m-auto mb-4' 
-             type="text" placeholder='surname' required/>
+             type="text" name='surname' placeholder='surname' required/>
             <input className='w-[72vw] p-2 px-4 m-auto mb-4' 
-             type="text" placeholder='Name' required/>
+             type="text" name='name' placeholder='Name' required/>
             <input className='w-[72vw] p-2 px-4 m-auto mb-4' 
-             type="email" placeholder='Email' required value={email} onChange={(e) => setEmail(e.target.value)}/>
+             type="email" name='email' placeholder='Email' required value={email} onChange={(e) => setEmail(e.target.value)}/>
             <input className='w-[72vw] p-2 px-4 m-auto mb-4' 
-             type="password" placeholder='Password' required value={password} onChange={(e) => setPassword(e.target.value)}/>
+             type="password" name='password' placeholder='Password' required value={password} onChange={(e) => setPassword(e.target.value)}/>
             <Submit />
         </form>
   )
