@@ -12,6 +12,9 @@ module.exports = {
       colors: {
         primary: "#3198CC",
         secondary: "#54D4CA",
+        error: "#D92402",
+        warning: "#BEAF5A",
+        ok: "#31E0A6",
         black: "#060D1A",
         gray: {
           75: "#414750",
@@ -22,6 +25,9 @@ module.exports = {
         }
       }
     },
+    // fontFamily: {
+    //   sans: 'lato sans-serif'
+    // }
   },
   plugins: [],
 }
