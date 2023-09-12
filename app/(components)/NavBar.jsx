@@ -10,7 +10,7 @@ export default function NavBar({page}) {
   const isDesktop = useMediaQuery('lg')
 
   return (
-    <div className="flex flex-col px-4 py-4 border-b fixed w-screen bg-gray-5 top-0 z-10">
+    <div className="flex flex-col px-4 py-3 fixed w-screen bg-gray-75 top-0 z-10">
       {isMobile ? <PhoneNavBar /> : 'not phone'}  
     </div>
   )

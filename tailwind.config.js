@@ -23,7 +23,10 @@ module.exports = {
           10: "#DEDEE0",
           5: "#E9EAEA",
         }
-      }
+      },
+      backgroundImage: {
+        'stocks': "url('/images/stock-market-green-red-graph-black-background-forex-market-trading-92500514.webp')",
+      },
     },
     // fontFamily: {
     //   sans: 'lato sans-serif'
