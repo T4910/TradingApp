@@ -8,7 +8,7 @@ export default function starter() {
             TradeUp
         </h3>
         <p className="text-3xl mb-16">
-            Experience the real-time trading without having to take real-life <u>risks</u>
+            Experience real-time trading without having to take real-life <u>risks</u>
         </p>
         <JoinNow />
     </div>
