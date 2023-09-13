@@ -10,7 +10,7 @@ export default function aboutdev() {
             for detail and a dedication to creating exceptional experiences,
             the developer has crafted this platform for your trading journey. 
             <br />
-            Click the button below to see more of his work.
+            Click the button to learn more about him.
         </p>
         <About />
     </div>
