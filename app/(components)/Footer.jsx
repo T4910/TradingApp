@@ -4,8 +4,8 @@ import Contacts from "./footerContacts"
 
 export default function Footer() {
   return (
-    <div className="grid">
-      <h3 className="px-8 pt-8 text-xl font-medium h-max col-span-2">TradeUp</h3>
+    <div className="grid w-screen">
+      <h3 className="px-4 pt-8 text-xl font-medium h-max col-span-2">TradeUp</h3>
       <Pages />
       <Contacts />
       <Links />
