@@ -3,7 +3,7 @@ import JoinNow from '../(components)/joinnowbtn'
 export default function starter() {
 
   return (
-    <div className='  flex h- flex-col mt-12 w-auto px-6 py-[24vh] bg-stocks backdrop-blur-lg bg-cover text-gray-10'>
+    <div className='flex h- flex-col mt-12 w-auto px-6 md:px-12 py-[24vh] bg-stocks backdrop-blur-lg bg-cover text-gray-10'>
         <h3 className="text-5xl font-bold mb-8">
             TradeUp
         </h3>

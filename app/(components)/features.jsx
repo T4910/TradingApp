@@ -2,7 +2,7 @@ import Showfeatures from "./displayFeatures"
 
 export default function features() {
   return (
-    <div className="p-4 py-12 pt-10 border-b border-gray-5 bg-blue-950">
+    <div className="px-4 py-12 md:px-8 md:py-16 pt-10 border-b border-gray-5 bg-blue-950">
         <h3 className="text-2xl mb-6 font-semibold">Features</h3>
         <div className="">
           <Showfeatures src='/images/stock-image-with-pen.jpg'>
@@ -11,7 +11,7 @@ export default function features() {
               live price quotes, charts, and financial news. Gain valuable 
               insights into market trends and make data-driven decisions.
           </Showfeatures>
-          <Showfeatures src='/images/glasss.jpg'>
+          <Showfeatures src='/images/glasss.jpg' invert='true'>
             <b className="block">Customizable Trading Strategies</b>
             Create and test your own trading strategies using historical data. 
             Fine-tune parameters, set stop-loss and take-profit orders, and watch 
@@ -23,7 +23,7 @@ export default function features() {
             from stocks and cryptocurrencies to commodities and forex. Experiment with 
             diverse trading strategies without risking real capital.
           </Showfeatures>
-          <Showfeatures src='/images/istockphoto-1031313364-612x612.jpg'>
+          <Showfeatures src='/images/istockphoto-1031313364-612x612.jpg' invert='true'>
               <b className="block">Risk-Free Learning</b> 
               Enjoy the thrill of trading without the fear of losing real money. 
               Our simulator provides a safe environment for users of all experience 
