@@ -2,7 +2,7 @@ import Showfeatures from "./displayFeatures"
 
 export default function features() {
   return (
-    <div className="p-6 py-12 pt-10 border-b border-gray-5 bg-blue-950">
+    <div className="p-4 py-12 pt-10 border-b border-gray-5 bg-blue-950">
         <h3 className="text-2xl mb-6 font-semibold">Features</h3>
         <div className="">
           <Showfeatures src='/images/stock-image-with-pen.jpg'>
