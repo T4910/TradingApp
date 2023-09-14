@@ -1,17 +1,15 @@
 'use client'
 import PhoneNavBar from './phoneNavBar'
+import BiggerNavBar from './bigNavBar'
 import useMediaQuery from "./hooks/useMediaQuery"
 
 
 export default function NavBar({page}) {
   const isMobile = useMediaQuery('sm')
-  // const isAlsoMobile = useMediaQuery('sm')
-  const isTablet = useMediaQuery('md')
-  const isDesktop = useMediaQuery('lg')
 
   return (
-    <div className="flex flex-col px-4 py-3 fixed w-screen bg-gray-75 top-0 z-10">
-      {isMobile ? <PhoneNavBar /> : 'not phone'}  
+    <div className="flex flex-col px-4 py-2 fixed w-full bg-gray-75 top-0 z-10 lg:relative lg:px-8 ">
+      {isMobile ? <PhoneNavBar /> : <BiggerNavBar page={page}/>}  
     </div>
   )
 }
