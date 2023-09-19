@@ -5,6 +5,7 @@ import {useRouter} from 'next/navigation'
 import Flash from './flashBox'
 import Inputs from './inputs'
 import Others from './otherLogins'
+import Link from 'next/link'
 
 
 
@@ -60,10 +61,15 @@ export default function loginForm() {
     }
 
     return (
-        <form  className="flex flex-col" onSubmit={(e) => {LOGIN(e)}}>
-            <Flash {...flash} setData={setFlash}/>
-            <Inputs />
-            <Others />
-        </form>
+        <div className='bg-black text-white h-screen pt-24 pb-12 flex flex-col'>
+            <h1 className='text-center font-semibold text-2xl mb-8'>Login</h1>
+            <form  className="flex flex-col flex-grow" onSubmit={(e) => {LOGIN(e)}}>
+                <Flash {...flash} setData={setFlash}/>
+                <Inputs />
+                <hr className="m-auto my-0 w-3/4"/>
+                <Others />
+            </form>
+            <p className='text-center'>Don't have an account? <Link className='text-secondary font-medium' href='/signings/register'>Sign up</Link></p>
+        </div>
   )
 }

@@ -5,9 +5,8 @@ import Footer from '../../(components)/Footer'
 export default function page() {
     
   return (
-    <div className="bg-gray-50 mt-10 pt-10">
+    <div className="">
         <NavBar/>
-        <h1 className='text-center font-semibold text-2xl mb-4'>Log in</h1>
         <Form />
         <Footer />
     </div>
