@@ -8,7 +8,7 @@ export default function NavBar({page}) {
   const isMobile = useMediaQuery('sm')
 
   return (
-    <div className="flex flex-col px-4 py-2 fixed w-full bg-gray-75 top-0 z-10 lg:relative lg:px-8 ">
+    <div className="text-white flex flex-col px-4 py-2 fixed w-full bg-gray-75 top-0 z-10 lg:relative lg:px-8 ">
       {isMobile ? <PhoneNavBar /> : <BiggerNavBar page={page}/>}  
     </div>
   )
