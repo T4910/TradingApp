@@ -9,9 +9,6 @@ import Others from '../../(components)/otherLogins'
 import Footer from '../../(components)/Footer'
 
 
-
-
-
 export default function page() {
     const router = useRouter()
     const {data: session} = useSession()
@@ -21,12 +18,15 @@ export default function page() {
     const [flashData, setFlash] = useState({isShown: false})
     
     return (
-        <div className="bg-gray-50 mt-10 pt-10">
+        <div>
             <NavBar/>
-            <h2 className='text-center font-semibold text-2xl mb-4'>Register</h2>
-            <Flash {...flashData} setData={setFlash}/>
-            <Form setFlashData={setFlash}/>
-            <Others />
+            <div className='h-screen pt-24 bg-black text-white'>
+                <h2 className='text-center font-semibold text-2xl mb-8'>Register</h2>
+                <Flash {...flashData} setData={setFlash}/>
+                <Form setFlashData={setFlash}/>
+                <hr className="m-auto my-0 w-3/4"/>
+                <Others reg={true}/>
+            </div>
             <Footer />
         </div>  
     )

@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import {signIn, useSession} from 'next-auth/react'
 import Submit from './submitBTN'
 
+// TODO: Remove Surname and put just name 
 
 export default function registerForm({setFlashData}) {
     const [password, setPassword] = useState('')
@@ -113,14 +114,14 @@ export default function registerForm({setFlashData}) {
     }
 
     return (
-        <form className='flex flex-col mb-6' onSubmit={(e) => REGISTER(e)}>
-            <input className='w-[72vw] p-2 px-4 m-auto mb-4' 
-             type="text" name='surname' placeholder='surname' required/>
-            <input className='w-[72vw] p-2 px-4 m-auto mb-4' 
+        <form className='flex flex-col mb-8' onSubmit={(e) => REGISTER(e)}>
+            <input className='w-[72vw] p-2 px-4 m-auto mb-4 rounded' 
+             type="text" name='surname' placeholder='Surname' required/>
+            <input className='w-[72vw] p-2 px-4 m-auto mb-4 rounded' 
              type="text" name='name' placeholder='Name' required/>
-            <input className='w-[72vw] p-2 px-4 m-auto mb-4' 
+            <input className='w-[72vw] p-2 px-4 m-auto mb-4 rounded' 
              type="email" name='email' placeholder='Email' required value={email} onChange={(e) => setEmail(e.target.value)}/>
-            <input className='w-[72vw] p-2 px-4 m-auto mb-4' 
+            <input className='w-[72vw] p-2 px-4 m-auto mb-4 rounded' 
              type="password" name='password' placeholder='Password' required value={password} onChange={(e) => setPassword(e.target.value)}/>
             <Submit />
         </form>
