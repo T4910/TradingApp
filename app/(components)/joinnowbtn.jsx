@@ -8,7 +8,7 @@ export default function joinnowbtn() {
     const {data} = useSession()
 
     const forwardedURL = {
-        url: data?.user ? `${process.env.NEXT_PUBLIC_NEXTAUTH_URL}/dashboard` : `${process.env.NEXT_PUBLIC_NEXTAUTH_URL}/signings/register`,
+        url: data?.user ? `${process.env.NEXT_PUBLIC_WEB_URL}/dashboard` : `${process.env.NEXT_PUBLIC_WEB_URL}/signings/register`,
         btn: data?.user ? 'Back to Dashboard' : 'Join Now'
     } 
 

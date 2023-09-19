@@ -14,7 +14,7 @@ export default function loginForm() {
     const router = useRouter()
     
     // if there's a session send to dashboard
-    useEffect(() => session && router.replace(`${process.env.NEXT_PUBLIC_NEXTAUTH_URL}/dashboard`), [session])
+    useEffect(() => session && router.replace(`${process.env.NEXT_PUBLIC_WEB_URL}/dashboard`), [session])
     const [flash, setFlash] = useState({isShown: false})
 
 
@@ -45,8 +45,8 @@ export default function loginForm() {
         // DONE: make popup alert for 'no user found' or 'invalid password' ('invalid user or password. Try again') 
         // DONE: make popup alert for any other error that occurs on server 
         
-        let {ok: itSignedIn, error, status} = await signIn('credentials', {redirect: false, callbackUrl: `${process.env.NEXT_PUBLIC_NEXTAUTH_URL}/dashboard`, ...loginDetails})
-        if(itSignedIn) return router.push(`${process.env.NEXT_PUBLIC_NEXTAUTH_URL}/dashboard`);
+        let {ok: itSignedIn, error, status} = await signIn('credentials', {redirect: false, callbackUrl: `${process.env.NEXT_PUBLIC_WEB_URL}/dashboard`, ...loginDetails})
+        if(itSignedIn) return router.push(`${process.env.NEXT_PUBLIC_WEB_URL}/dashboard`);
             
         
         if(status == 401) return setFlash({ status: 'error', isShown: true,

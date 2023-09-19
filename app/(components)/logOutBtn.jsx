@@ -7,7 +7,7 @@ export default function logOutBtn() {
     <button onClick={async () => 
       await signOut({
       redirect: true,
-      callbackUrl: `${process.env.NEXT_PUBLIC_NEXTAUTH_URL}/`
+      callbackUrl: `${process.env.NEXT_PUBLIC_WEB_URL}/`
     })}>Log Out</button>
   )
 }

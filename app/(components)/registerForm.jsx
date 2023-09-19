@@ -106,7 +106,7 @@ export default function registerForm({setFlashData}) {
         // TODO: identifier for if user is a newUser should be added (in Next-Auth documentation)
         await signIn('credentials', {
             redirect: true,
-            callbackUrl: `${process.env.NEXT_PUBLIC_NEXTAUTH_URL}/dashboard`,
+            callbackUrl: `${process.env.NEXT_PUBLIC_WEB_URL}/dashboard`,
             email: details.email,
             password: details.password,
         })

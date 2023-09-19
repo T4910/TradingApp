@@ -16,7 +16,7 @@ export default function page() {
     const router = useRouter()
     const {data: session} = useSession()
 
-    useEffect(() => session && router.replace(`${process.env.NEXT_PUBLIC_NEXTAUTH_URL}/dashboard`), [session])
+    useEffect(() => session && router.replace(`${process.env.NEXT_PUBLIC_WEB_URL}/dashboard`), [session])
 
     const [flashData, setFlash] = useState({isShown: false})
     

@@ -18,7 +18,7 @@ export default function projectAbout() {
             their trading jorney with great expertise. 
           </p>
         </div>
-        <Image src="/images/woman-with-light-blue.jpg" height={200} width={400} className="rounded"/>
+        <Image src="/images/woman-with-light-blue.jpg" height={200} width={400} className="rounded hidden lg:block"/>
     </div>
   )
 }
