@@ -5,10 +5,12 @@ import Footer from '../../(components)/Footer'
 export default function page() {
     
   return (
-    <div className="">
-        <NavBar/>
-        <Form />
-        <Footer />
-    </div>
+    <>
+      <div className="bg-black md:max-h-screen md:py-40">
+          <NavBar/>
+          <Form />
+      </div>
+      <Footer />
+    </>
   )
 }

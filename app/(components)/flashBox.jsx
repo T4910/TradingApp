@@ -11,7 +11,7 @@ const Component = ({children, isShown, status, setData}) => {
     let visible = colorstatus[isShown]
 
     return (
-        <div className={`flex justify-between my-4 mx-auto w-[80vw] ${visible} mx-8 rounded ${colorstatus[status]}`}>
+        <div className={`flex justify-between my-4 mx-auto w-[80vw] md:w-4/5 ${visible} mx-8 rounded ${colorstatus[status]}`}>
             <div className="p-4 py-2">{children}</div>
             <button className="p-4 py-2" onClick={() => setData((data) => {
                 console.log('j: ', data)

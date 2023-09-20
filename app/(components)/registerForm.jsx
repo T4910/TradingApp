@@ -115,13 +115,13 @@ export default function registerForm({setFlashData}) {
 
     return (
         <form className='flex flex-col mb-8' onSubmit={(e) => REGISTER(e)}>
-            <input className='w-[72vw] p-2 px-4 m-auto mb-4 rounded' 
+            <input className='w-[72vw] p-2 px-4 m-auto mb-4 rounded md:w-2/3' 
              type="text" name='surname' placeholder='Surname' required/>
-            <input className='w-[72vw] p-2 px-4 m-auto mb-4 rounded' 
+            <input className='w-[72vw] p-2 px-4 m-auto mb-4 rounded md:w-2/3' 
              type="text" name='name' placeholder='Name' required/>
-            <input className='w-[72vw] p-2 px-4 m-auto mb-4 rounded' 
+            <input className='w-[72vw] p-2 px-4 m-auto mb-4 rounded md:w-2/3' 
              type="email" name='email' placeholder='Email' required value={email} onChange={(e) => setEmail(e.target.value)}/>
-            <input className='w-[72vw] p-2 px-4 m-auto mb-4 rounded' 
+            <input className='w-[72vw] p-2 px-4 m-auto mb-4 rounded md:w-2/3' 
              type="password" name='password' placeholder='Password' required value={password} onChange={(e) => setPassword(e.target.value)}/>
             <Submit />
         </form>

@@ -7,6 +7,7 @@ import Form from "../../(components)/registerForm"
 import Flash from '../../(components)/flashBox'
 import Others from '../../(components)/otherLogins'
 import Footer from '../../(components)/Footer'
+import Link from 'next/link'
 
 
 export default function page() {
@@ -18,16 +19,20 @@ export default function page() {
     const [flashData, setFlash] = useState({isShown: false})
     
     return (
-        <div>
-            <NavBar/>
-            <div className='h-screen pt-24 bg-black text-white'>
-                <h2 className='text-center font-semibold text-2xl mb-8'>Register</h2>
-                <Flash {...flashData} setData={setFlash}/>
-                <Form setFlashData={setFlash}/>
-                <hr className="m-auto my-0 w-3/4"/>
-                <Others reg={true}/>
-            </div>
+        <>
+            <div className='bg-black md:max-h-screen md:py-40'>
+                <NavBar/>
+                <div className='min-h-screen pt-24 pb-12 text-white
+                                md:border md:w-[60vw] md:mx-auto md:min-h-max md:rounded md:shadow-md'>
+                    <h2 className='text-center font-semibold text-2xl mb-8'>Register</h2>
+                    <Flash {...flashData} setData={setFlash}/>
+                    <Form setFlashData={setFlash}/>
+                    <hr className="m-auto my-0 w-3/4"/>
+                    <Others reg={true}/>
+                    <p className='text-center'>Already have an account? <Link className='text-secondary font-medium' href='/signings/login'>Sign in</Link></p>
+                </div>
+            </div>  
             <Footer />
-        </div>  
+        </>
     )
 }

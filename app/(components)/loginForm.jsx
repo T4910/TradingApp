@@ -61,7 +61,8 @@ export default function loginForm() {
     }
 
     return (
-        <div className='bg-black text-white h-screen pt-24 pb-12 flex flex-col'>
+        <div className='bg-black text-white h-screen pt-24 pb-12 flex flex-col
+                        md:border md:w-[60vw] md:mx-auto md:h-fit md:rounded md:shadow-md'>
             <h1 className='text-center font-semibold text-2xl mb-8'>Login</h1>
             <form  className="flex flex-col flex-grow" onSubmit={(e) => {LOGIN(e)}}>
                 <Flash {...flash} setData={setFlash}/>
