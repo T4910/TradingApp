@@ -8,7 +8,7 @@ export default function RootLayout({ children }) {
     return (
       <html lang="en">
         <head />
-        <body className=" bg-slate-50 text-black">
+        <body className=" bg-black text-white">
           <SessionProvider>
             {children}
           </SessionProvider>

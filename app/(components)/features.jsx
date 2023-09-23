@@ -3,7 +3,7 @@ import Muchmore from "./muchmore"
 
 export default function features() {
   return (
-    <div className="px-4 py-12 md:px-8 md:py-16 pt-10 border-b border-gray-5 bg-blue-950
+    <div className="px-4 py-12 md:px-8 md:py-16 pt-10 border-b border-gray-5 bg-greens-75
                     lg:px-0 lg:py-16">
         <h3 className="text-3xl text-gray-5 mb-6 font-semibold lg:mb-12 lg:px-20">Features</h3>
         <div className="lg:flex lg:flex-wrap lg:justify-evenly lg:px-20">

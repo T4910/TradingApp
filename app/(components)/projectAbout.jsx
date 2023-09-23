@@ -3,7 +3,7 @@ import Image from "next/image"
 
 export default function projectAbout() {
   return (
-    <div className="px-4 py-12 md:py-16 md:px-8 border-b border-gray-5 
+    <div className="px-8 py-16 md:px-8 text-white 
                     lg:px-20 lg:py-28 lg:flex lg:gap-20">
         <div>
           <h3 className="text-3xl mb-4 font-semibold lg:mb-8">What are we all about? </h3>

@@ -5,3 +5,19 @@
 body{
     margin: 0px;
 }
+
+/* styles.css */
+
+@keyframes custom-pulse {
+    0%, 30%, 70%, 100% {
+      opacity: 0.05;
+    }
+    50%{
+        opacity: 0.15;
+    }
+  }
+
+  .custom-pulse {
+    animation: custom-pulse 12s ease-out infinite;
+}
+  

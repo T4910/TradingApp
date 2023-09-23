@@ -15,7 +15,7 @@ export default function joinnowbtn() {
 
     return (
         <button 
-        className="bg-primary p-4 px-12 m-auto rounded-md text-base font-semibold lg:m-0 lg:mr-auto"
+        className="bg-secondary p-4 px-12 m-auto border border-white rounded-md text-base font-semibold md:m-0 md:mx-auto"
         onClick={() => router.replace(forwardedURL.url)}>{forwardedURL.btn}</button>
     )
 }
