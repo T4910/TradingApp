@@ -14,7 +14,7 @@ module.exports = {
         'pulse-4s': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite', // 2 seconds
       },
       colors: {
-        white: '#e9e4e4',
+        white: '#e5ede5',
         black: '#080a08',
         primary: '#3cf646',
         secondary: '#134e3a',

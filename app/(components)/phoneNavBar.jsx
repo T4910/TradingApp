@@ -11,12 +11,12 @@ export default function phoneNavBar() {
     const {data} = useSession()
 
     return (
-        <>
+        <div>
             <div className="flex justify-between px-4 py-2 bg-black opacity-95">
                 <p className='font-bold text-white'>TradeUp</p>
                 <button className='border p-1 rounded' onClick={() => setShowDD(!showDD)}><SlMenu /></button>
             </div>
             <DropDown visibility={showDD} auth={data} func={setShowDD}/>
-        </>
+        </div>
     )
 }

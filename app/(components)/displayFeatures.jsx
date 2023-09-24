@@ -2,7 +2,7 @@ import Image from 'next/image'
 
 export default function displayFeatures({src, children, invert}) {
   return ( 
-    <div className='bg-gray-75 border border-greens-25 shadow-md rounded-md p-2 bg-opacity-30 backdrop-blur
+    <div className='bg-gray-50 border border-greens-25 shadow-md rounded-md p-2 bg-opacity-30 backdrop-blur
                       md:p-0 md:mb-16 md:flex md:flex-row-reverse md:items-center
                       lg:w-[25vw] lg:flex-col '>
         <div className='relative w-auto h-44 md:w-[35%] md:h-52 lg:w-full lg:h-72'><Image src={src} fill className='rounded md:rounded-none md:rounded-r-md'/></div>
