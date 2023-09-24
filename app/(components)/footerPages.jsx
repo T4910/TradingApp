@@ -8,12 +8,12 @@ export default function footerPages() {
     const {data} = useSession()
 
     return (
-        <div className='flex flex-col pt-8 pr-4 text-end'>
-            <Link href="/"><u>Home</u></Link>
-            {!data?.user && <Link href="/signings/login"><u>Login</u></Link>}
-            {!data?.user && <Link href="/signings/register"><u>Sign up</u></Link>}
-            {data?.user && <Link href="/dashboard"><u>Dashboard</u></Link>}
-            <Link href="/about"><u>About Dev</u></Link>
+        <div className='flex flex-col pt-8 pr-8 text-end'>
+            <Link className='mb-2' href="/">Home</Link>
+            {!data?.user && <Link className='mb-2' href="/signings/login">Login</Link>}
+            {!data?.user && <Link className='mb-2' href="/signings/register">Sign up</Link>}
+            {data?.user && <Link className='mb-2' href="/dashboard">Dashboard</Link>}
+            <Link className='mb-2' href="/about">About Dev</Link>
             {data?.user && <LogOut />}
         </div>
     )

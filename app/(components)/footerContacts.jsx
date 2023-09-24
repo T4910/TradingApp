@@ -3,9 +3,10 @@ import Link from 'next/link'
 
 export default function footerContacts() {
   return (
-    <div className='p-4 pt-8 text-secondary font-medium'>
-        <p className="text-start">+234 811 293 1362</p>
-        <p className="text-start">ttaiwo4910@gmail.com</p>
+    <div className='px-8 pt-8 '>
+        <p className='mb-1'>Let's chat &#9996;:</p>
+        <p className="text-start text-primary font-medium">+234 811 293 1362</p>
+        <p className="text-start text-primary font-medium">ttaiwo4910@gmail.com</p>
     </div>
   )
 }

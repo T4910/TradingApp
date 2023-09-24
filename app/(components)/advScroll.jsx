@@ -79,7 +79,7 @@ export default function advScroll() {
     }, [])
 
     return (
-            <div className='flex overflow-x-auto' ref={containerRef}>
+            <div className='z-10 flex overflow-x-auto bg-greens-75 bg-opacity-30 backdrop-blur' ref={containerRef}>
                 <Whys colour='bg-pink-200' src='/images/real-time-dataedited-removebg-preview.png'>Real-time Data</Whys>
                 <Whys colour='bg-green-200' src='/images/gain-exp-org.png'>Gain Experience</Whys>
                 <Whys colour='bg-blue-200' src='/images/ruler-icon-18.png'>Advanced tooling</Whys>

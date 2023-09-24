@@ -5,7 +5,7 @@ import Contacts from "./footerContacts"
 export default function Footer() {
   return (
     <div className="grid md:px-8 lg:px-8">
-      <h3 className="px-4 pt-8 text-xl font-semibold h-max col-span-2">TradeUp</h3>
+      <h3 className="px-8 pt-8 text-xl font-semibold h-max col-span-2">TradeUp</h3>
       <Contacts />
       <Pages />
       <Links />
