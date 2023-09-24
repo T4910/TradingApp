@@ -8,7 +8,7 @@ export default function footerPages() {
     const {data} = useSession()
 
     return (
-        <div className='flex flex-col pt-8 pl-4'>
+        <div className='flex flex-col pt-8 pr-4 text-end'>
             <Link href="/"><u>Home</u></Link>
             {!data?.user && <Link href="/signings/login"><u>Login</u></Link>}
             {!data?.user && <Link href="/signings/register"><u>Sign up</u></Link>}
