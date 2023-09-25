@@ -114,7 +114,7 @@ export default function registerForm({setFlashData}) {
     }
 
     return (
-        <form className='flex flex-col mb-8' onSubmit={(e) => REGISTER(e)}>
+        <form className='flex flex-col mb-8 text-black' onSubmit={(e) => REGISTER(e)}>
             <input className='w-[72vw] p-2 px-4 m-auto mb-4 rounded md:w-2/3' 
              type="text" name='surname' placeholder='Surname' required/>
             <input className='w-[72vw] p-2 px-4 m-auto mb-4 rounded md:w-2/3' 

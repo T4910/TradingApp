@@ -61,7 +61,7 @@ export default function loginForm() {
     }
 
     return (
-        <div className='bg-black text-white h-screen pt-24 pb-12 flex flex-col
+        <div className='bg-black text-white h-[100dvh] pt-24 pb-12 flex flex-col
                         md:border md:w-[60vw] md:mx-auto md:h-fit md:rounded md:shadow-md'>
             <h1 className='text-center font-semibold text-2xl mb-8'>Login</h1>
             <form  className="flex flex-col flex-grow" onSubmit={(e) => {LOGIN(e)}}>
@@ -70,7 +70,7 @@ export default function loginForm() {
                 <hr className="m-auto my-0 w-3/4"/>
                 <Others />
             </form>
-            <p className='text-center'>Don't have an account? <Link className='text-secondary font-medium' href='/signings/register'>Sign up</Link></p>
+            <p className='text-center'>Don't have an account? <Link className='text-primary font-medium' href='/signings/register'>Sign up</Link></p>
         </div>
   )
 }

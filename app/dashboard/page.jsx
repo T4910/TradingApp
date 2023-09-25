@@ -4,6 +4,7 @@ import Footer from '../(components)/Footer'
 import SideBar from '../(components)/sideBar'
 import {useSession} from 'next-auth/react'
 import { createContext, useEffect, useState } from 'react'
+import Link from 'next/link'
 
 // TODO: Prevent users from going back to prohibited pages
 // TODO: Make loading signs for the loading components
@@ -23,16 +24,28 @@ export default function page() {
   useEffect(() => setID(data?.user.id), [data?.user.id])
 
   return (
-    <IDContext.Provider value={ID}>
-      <div>
-        <NavBar auth={true} />
-        <SideBar/>
-        <div>this is the dashboard</div>
-        <Footer />
+    <div>
+      <NavBar auth={true} />
+      <div className='grid place-items-center h-[100dvh] w-screen'>
+        <div>
+          <p className='font-bold text-5xl mb-4'>Coming soon!</p>
+          <p className='text-center'>Please proceed to <Link href='/' className='font-bold text-primary underline underline-offset-1'>front page</Link></p>
+        </div>
       </div>
-    </IDContext.Provider>
+      <Footer />
+    </div>
   )
 }
+
+
+{/* <IDContext.Provider value={ID}>
+<div>
+  <NavBar auth={true} />
+  <SideBar/>
+  <div>this is the dashboard</div>
+  <Footer />
+</div>
+</IDContext.Provider> */}
 
 let data = [
   {
