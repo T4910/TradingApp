@@ -30,12 +30,8 @@ export const authOptions = {
 
         if(!user) return null
         let similarPassword = await compare(credentials.password, user.password)        
-        console.log('similar password:', similarPassword)
-
-        let returnValue;
-        similarPassword ? returnValue = user : returnValue = null
         
-        return returnValue
+        return similarPassword ? user : null
       }
     })
   ]

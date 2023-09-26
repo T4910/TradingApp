@@ -22,7 +22,6 @@ export default function emailContact() {
           children: 'Please enter valid inputs'
         })
 
-        const success = console.log(name, email, message)
 
         if (success){
           // set inputs to nothing 

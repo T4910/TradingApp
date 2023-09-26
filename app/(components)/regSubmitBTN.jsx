@@ -21,23 +21,28 @@ export default function regSubmitBTN({flash}) {
 
 
         // check for email in database
-        let res = await fetch('/api/signing/DBemailChecking', {
-            method: 'POST',
-            body: JSON.stringify({email: email, username: username})
-        })
-        let isThereAnotherEmail = await res.json()
+        try{
+            let res = await fetch('/api/signing/DBemailChecking', {
+                method: 'POST',
+                body: JSON.stringify({email: email, username: username})
+            })
+            let isThereAnotherEmail = await res.json()
+    
+            if(isThereAnotherEmail) return flash({ message: 'Email has already been used' })
+        } catch (e) { return flash({ message: 'Problem in server', code: 'err' }) }
 
-        if(isThereAnotherEmail) return flash({ message: 'Email has already been used' })
-
+        try{
         // create User
-        res = await fetch('/api/signing/register',{
-            headers: { "Content-Type": "application/json" },
-            method: 'POST',
-            body: JSON.stringify({username: username, email: email, password: password})
-        })
+            res = await fetch('/api/signing/register',{
+                headers: { "Content-Type": "application/json" },
+                method: 'POST',
+                body: JSON.stringify({username: username, email: email, password: password})
+            })
+    
+            if(!res.ok) return flash({ message: 'Problem in server', code: 'err' })
+        } catch(e) { return flash({ message: 'Problem in server', code: 'err' }) }
 
-        if(!res.ok) return flash({ message: 'Problem in server', code: 'err' })
-
+        
         // TODO: identifier for if user is a newUser should be added (in Next-Auth documentation)
         await signIn('credentials', { email: email, password: password, redirect: false })
         redirect('/dashboard')

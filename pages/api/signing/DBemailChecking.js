@@ -11,7 +11,6 @@ export default async function handler(req, res){
 
     let results = emailresults || usersresults
 
-    console.log('res from api point: ', results, reqBody.email)
     res.json(results)
 
 }

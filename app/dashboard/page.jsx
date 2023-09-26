@@ -19,7 +19,6 @@ export const IDContext = createContext(null)
 export default function page() {
   // TODO: get session on server side   NOT POSSIBLE
   let {data} = useSession()
-  console.log('Sessions on Dashboard: ', data?.user.id)
 
   let [ID, setID] = useState(data?.user.id)
   useEffect(() => setID(data?.user.id), [data?.user.id])

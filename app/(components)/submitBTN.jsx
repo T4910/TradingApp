@@ -24,7 +24,6 @@ export default function submitBTN({flash}) {
 
         if(status == 401) return flash({ message: 'Invalid Email or Password'}) 
         else {
-            console.log(error)
             return flash({message: 'Server Error', code: 'err'})
         }
     }
