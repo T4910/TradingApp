@@ -3,4 +3,4 @@ yarn.lock
 .next
 .vscode
 .env*
-prisma/migrations
+prisma/migrations/*
