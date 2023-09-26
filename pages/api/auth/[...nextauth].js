@@ -1,8 +1,8 @@
 import NextAuth from "next-auth"
-import {compare, hash} from "bcrypt"
+import {compare, hash} from "bcryptjs"
 import { PrismaAdapter } from "@auth/prisma-adapter"
 import { PrismaClient } from "@prisma/client"
-import EmailProvider from "next-auth/providers/email";
+// import EmailProvider from "next-auth/providers/email";
 import Crendentials from "next-auth/providers/credentials"
 import Google from "next-auth/providers/google"
 
