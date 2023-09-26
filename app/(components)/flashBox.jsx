@@ -1,25 +1,18 @@
-const Component = ({children, isShown, status, setData}) => {
-    const colorstatus = {
-        info: 'bg-blue',
-        error: 'bg-error',
-        warning: 'bg-warning',
+
+
+export default function Flash ({message, code, set}){
+    let visible = message ? '' : 'hidden';
+    const colorcode = {
+        err: 'bg-error',
+        warn: 'bg-warning',
         good: 'bg-ok',
-        true: '',
-        false: 'hidden'
     }
 
-    let visible = colorstatus[isShown]
-
-    return (
-        <div className={`flex justify-between my-4 mx-auto w-[80vw] md:w-4/5 ${visible} mx-8 rounded ${colorstatus[status]}`}>
-            <div className="p-4 py-2">{children}</div>
-            <button className="p-4 py-2" type='button' onClick={() => setData((data) => {
-                console.log('j: ', data)
-                return {...data, isShown: false}
-            })}>x</button>
+    return (                                                                 // mx-auto
+        <div className={`${visible} ${colorcode[code ? code : 'warn']} flex justify-between my-4 w-[80vw] md:w-4/5 mx-8 rounded`}>
+            <div className="p-4 py-2">{message}</div>
+            <button className="p-4 py-2" type='button' onClick={() => set({ message: null })}>x</button>
         </div>
     )
 }
 
-
-export default Component

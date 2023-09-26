@@ -6,10 +6,12 @@ export default async function handler(req, res){
     
     const prisma = new PrismaClient()
 
-    let results = await prisma.user.count({where: {
-        email: reqBody.email
-    }})
+    let emailresults = await prisma.user.count({where: { email: reqBody.email }})
+    let usersresults = await prisma.user.count({where: { username: reqBody.username }})
 
+    let results = emailresults || usersresults
+
+    console.log('res from api point: ', results, reqBody.email)
     res.json(results)
 
 }

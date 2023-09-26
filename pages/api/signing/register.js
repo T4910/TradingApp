@@ -1,5 +1,5 @@
 import { PrismaClient } from "@prisma/client"
-import { hash } from "bcrypt"
+import { hash } from "bcryptjs"
 
 export default async function handler(req, res){
   if (req.method === 'GET') return res.send({})
@@ -10,8 +10,7 @@ export default async function handler(req, res){
   console.log(req.body)
   const user = await prisma.user.create({
     data: {
-      firstName: req.body.surname.toLowerCase(),
-      lastName: req.body.firstname.toLowerCase(),
+      username: req.body.username.toLowerCase(),
       password: await hash(req.body.password, 10),
       email: req.body.email.toLowerCase()
     },

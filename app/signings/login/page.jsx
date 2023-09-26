@@ -1,15 +1,15 @@
 import NavBar from "../../(components)/NavBar"
 import Form from '../../(components)/loginForm'
 import Footer from '../../(components)/Footer'
-import { redirect } from 'next/navigation'
-import { getServerSession } from "next-auth/next"
 import Link from "next/link"
-// import { authOptions } from "../pages/api/auth/[...nextauth]"
+import { redirect } from 'next/navigation'
+import { getServerSession } from "next-auth"
+import { authOptions } from "../../../pages/api/auth/[...nextauth]"
 
 
 export default async function page() {
-  // let session = await getServerSession(authOptions);
-  // session.user && redirect('/dashboard');
+  let session = await getServerSession(authOptions);
+  session && redirect('/dashboard');
 
 
   return (

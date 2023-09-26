@@ -1,5 +1,5 @@
 import NextAuth from "next-auth"
-import {compare, hash} from "bcryptjs"
+import {compare} from "bcryptjs"
 import { PrismaAdapter } from "@auth/prisma-adapter"
 import { PrismaClient } from "@prisma/client"
 // import EmailProvider from "next-auth/providers/email";
@@ -26,7 +26,7 @@ export const authOptions = {
     }),
     Crendentials({
       async authorize(credentials){
-        let user = await prisma.user.findUnique({where: {email: credentials.email}})
+        let user = await prisma.user.findFirst({where: {email: credentials.email}}) || await prisma.user.findFirst({where: {username: credentials.email}})
 
         if(!user) return null
         let similarPassword = await compare(credentials.password, user.password)        

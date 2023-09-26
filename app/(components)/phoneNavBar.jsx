@@ -12,9 +12,9 @@ export default function phoneNavBar() {
 
     return (
         <div>
-            <div className="flex justify-between px-4 py-2 bg-black opacity-95">
+            <div className="flex justify-between px-4 py-4 bg-black opacity-95">
                 <p className='font-bold text-white'>TradeUp</p>
-                <p className='text-red-900'>{data?.user.id}</p>
+                {/* <p className='text-red-900'>{data?.user.id}</p> */}
                 <button className='border p-1 rounded' onClick={() => setShowDD(!showDD)}><SlMenu /></button>
             </div>
             <DropDown visibility={showDD} auth={data} func={setShowDD}/>

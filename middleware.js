@@ -1,6 +1,5 @@
 import { RequestCookies } from 'next/dist/compiled/@edge-runtime/cookies'
 import { NextResponse } from 'next/server'
-// import { NextRequest } from 'next/server'
 
 export function middleware(req) {   
     const cookies = new RequestCookies(req.headers)
