@@ -7,12 +7,13 @@ export async function middleware(req, res) {
     const cookies = new RequestCookies(req.headers)
     const cookieSession = cookies.get("next-auth.session-token")
     const authenticated = cookieSession ? true : false
-    const session = await getServerSession(req, res, authOptions)
+    // const session = await getServerSession(req, res, authOptions)
 
     // if you're going to dashboard and you are authenticated, proceed, else go to login page
-    if (req.nextUrl.pathname.startsWith('/dashboard')) {
-        return session ? NextResponse.rewrite(new URL('/dashboard', req.url)) : NextResponse.rewrite(new URL('/signings/login', req.url))
-    }
+    // if (req.nextUrl.pathname.startsWith('/dashboard')) {
+    //     // consol.log(session)
+    //     return authenticated ? NextResponse.rewrite(new URL('/dashboard', req.url)) : NextResponse.rewrite(new URL('/signings/login', req.url))
+    // }
     
     // FIX the routing issue
     // if you're not going to dashboard and you are authenticated go back to the dashboard, else continue
