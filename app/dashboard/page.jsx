@@ -12,7 +12,7 @@ import { redirect } from 'next/dist/server/api-utils'
 // DONE: change NavBar and Footer when authenticated...
 // TODO: Put a sidebar
 
-export const IDContext = createContext(null) 
+// export const IDContext = createContext(null) 
 
 export default function page() {
   return (
@@ -32,12 +32,12 @@ export default function page() {
 }
 
 
-{/* <IDContext.Provider value={ID}>
-<div>
-  <NavBar auth={true} />
-  <SideBar/>
-  <div>this is the dashboard</div>
-  <Footer />
-</div>
-</IDContext.Provider> */}
+// {/* <IDContext.Provider value={ID}>
+// <div>
+//   <NavBar auth={true} />
+//   <SideBar/>
+//   <div>this is the dashboard</div>
+//   <Footer />
+// </div>
+// </IDContext.Provider> */}
 
