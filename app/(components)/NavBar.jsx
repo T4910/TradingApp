@@ -37,7 +37,7 @@ let AlightBtn = (toggle) => {
   return (
     toggle && <button 
       className="bg-primary font-bold p-1 rounded-xl"
-      onClick={() => router.replace(`${process.env.NEXT_PUBLIC_WEB_URL}/dashboard`)}
+      onClick={() => router.replace(`/dashboard`)}
     >
       Dashboard
     </button>
