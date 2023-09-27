@@ -22,9 +22,9 @@ export default function regSubmitBTN({flash}) {
 
         // check for email in database
         try{
-            let res = await fetch('/api/signing/DBemailChecking', {
+            let res = await fetch('/api/reguser', { //signing/DBemailChecking', {
                 method: 'POST',
-                body: JSON.stringify({email: email, username: username})
+                body: JSON.stringify({email: email, username: username, check: true})
             })
             let isThereAnotherEmail = await res.json()
     
@@ -33,7 +33,7 @@ export default function regSubmitBTN({flash}) {
 
         try{
         // create User
-            let res = await fetch('/api/signing/register',{
+            let res = await fetch('/api/reguser', { //signing/register',{
                 headers: { "Content-Type": "application/json" },
                 method: 'POST',
                 body: JSON.stringify({username: username, email: email, password: password})

@@ -2,7 +2,7 @@
 const nextConfig = {
     experimental: {
       serverActions: true,
-      serverComponentsExternalPackages: ['bcrypt', '@mapbox']
+      serverComponentsExternalPackages: ['bcrypt', 'bcryptjs']
     },
   };
   

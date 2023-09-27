@@ -4,7 +4,7 @@ import Footer from '../../(components)/Footer'
 import Link from "next/link"
 import { redirect } from 'next/navigation'
 import { getServerSession } from "next-auth"
-import { authOptions } from "../../../pages/api/auth/[...nextauth]"
+import { authOptions } from "../../api/auth/[...nextauth]/route"
 
 
 export default async function page() {

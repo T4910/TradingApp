@@ -1,5 +1,5 @@
 import { getServerSession } from 'next-auth'
-import { authOptions } from '../../../pages/api/auth/[...nextauth]'
+import { authOptions } from "../../api/auth/[...nextauth]/route"
 import { redirect } from 'next/dist/server/api-utils'
 import NavBar from "../../(components)/NavBar"
 import Form from "../../(components)/registerForm"

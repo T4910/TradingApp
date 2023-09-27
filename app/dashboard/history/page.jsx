@@ -1,12 +1,13 @@
 import { getServerSession } from "next-auth"
-import { authOptions } from '../../../pages/api/auth/[...nextauth]'
+import { authOptions } from "../../api/auth/[...nextauth]/route"
 import { redirect } from "next/navigation"
 
 export default async function page() {
-  let session = getServerSession(authOptions)
-  session && redirect('/dashboard')
+    const session = await getServerSession(authOptions)
+    session && redirect('/dashboard')
 
-  return (
-    <div>tis is the history page...</div>
-  )
+    console.log('history page')
+    return (
+        <div>history</div>
+    )
 }
