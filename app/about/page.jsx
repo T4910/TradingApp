@@ -1,6 +1,6 @@
-import NavBar from '../(components)/NavBar'
-import Footer from '../(components)/Footer'
-import EmailContact from '../(components)/emailContact'
+// import NavBar from '../(components)/NavBar'
+// import Footer from '../(components)/Footer'
+// import EmailContact from '../(components)/emailContact'
 import Link from 'next/link'
 
 
@@ -8,6 +8,7 @@ export default function page() {
   return (
     <div className='grid place-items-center h-screen w-screen'>
       <div>
+        <p className='text-center'>/about</p>
         <p className='font-bold text-5xl mb-4'>Coming soon!</p>
         <p className='text-center'>Please proceed to <Link href='/' className='font-bold text-secondary underline underline-offset-1'>front page</Link></p>
       </div>
