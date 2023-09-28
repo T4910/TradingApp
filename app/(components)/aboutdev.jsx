@@ -1,4 +1,4 @@
-import About from "./aboutdevlink"
+import About from "./aboutdevBTN"
 
 export default function aboutdev() {
   return (

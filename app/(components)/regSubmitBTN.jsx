@@ -38,9 +38,8 @@ export default function regSubmitBTN({flash}) {
                 method: 'POST',
                 body: JSON.stringify({username: username, email: email, password: password})
             })
-            console.log('created user: ', res.ok)
-            // if(!res.ok) return flash({ message: 'Problem in server', code: 'err' })
-        } catch(e) {console.log(e); return flash({ message: 'Problem in server', code: 'err' }) }
+            if(res.ok) return flash({ message: 'Account created', code: 'good' })
+        } catch(e) {return flash({ message: 'Problem in server', code: 'err' }) }
 
         
         // TODO: identifier for if user is a newUser should be added (in Next-Auth documentation)
@@ -49,7 +48,7 @@ export default function regSubmitBTN({flash}) {
     }
 
     return (
-        <button aria-disabled={pending} formAction={register} className='bg-secondary text-white w-[40vw] md:w-1/2 m-auto p-2 px-4 rounded'>
+        <button aria-disabled={pending} disabled={pending} formAction={register} className='bg-secondary text-white w-[40vw] md:w-1/2 m-auto p-2 px-4 rounded'>
             {!pending ? 'Submit' : '...'}
         </button>
     )

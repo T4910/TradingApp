@@ -14,7 +14,7 @@ export default function footerPages() {
             {!data?.user && <Link className='mb-2' href="/signings/register">Sign up</Link>}
             {data?.user && <Link className='mb-2' href="/dashboard">Dashboard</Link>}
             <Link className='mb-2' href="/about">About Dev</Link>
-            {data?.user && <LogOut />}
+            {data?.user && <LogOut footer={true}/>}
         </div>
     )
 }

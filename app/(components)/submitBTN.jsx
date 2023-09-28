@@ -29,6 +29,6 @@ export default function submitBTN({flash}) {
     }
 
     return (
-        <button aria-disabled={pending} formAction={login} className='bg-secondary text-white w-[40vw] md:w-1/2 m-auto p-2 px-4 rounded'>{!pending ? 'Submit' : '...'}</button>
+        <button aria-disabled={pending} disabled={pending} formAction={login} className='bg-secondary text-white w-[40vw] md:w-1/2 m-auto p-2 px-4 rounded'>{!pending ? 'Submit' : '...'}</button>
     )
 }

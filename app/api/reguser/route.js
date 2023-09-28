@@ -2,15 +2,10 @@ import { PrismaClient } from "@prisma/client"
 import { hash } from "bcryptjs"
 import { NextResponse } from "next/server"
 
-export async function GET(req, res){
-    console.log(req)
-  return NextResponse.json({s: 's'})
-}
 
 export async function POST(req){
   const prisma = new PrismaClient()
   const data = await req.json()
-  console.log('used route', data)
 
   if(data.check){
     let emailresults = await prisma.user.count({where: { email: data.email }})
