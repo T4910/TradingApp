@@ -48,7 +48,7 @@ export default function regSubmitBTN({flash}) {
     }
 
     return (
-        <button aria-disabled={pending} formAction={register} className='bg-secondary text-white w-[40vw] md:w-1/2 m-auto p-2 px-4 rounded'>
+        <button aria-disabled={pending} disabled={pending} formAction={register} className='bg-secondary text-white w-[40vw] md:w-1/2 m-auto p-2 px-4 rounded'>
             {!pending ? 'Submit' : '...'}
         </button>
     )
