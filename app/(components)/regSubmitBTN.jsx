@@ -38,7 +38,7 @@ export default function regSubmitBTN({flash}) {
                 method: 'POST',
                 body: JSON.stringify({username: username, email: email, password: password})
             })
-            if(res.ok) return flash({ message: 'Account created', code: 'good' })
+            if(res.ok) flash({ message: 'Account created', code: 'good' })
         } catch(e) {return flash({ message: 'Problem in server', code: 'err' }) }
 
         

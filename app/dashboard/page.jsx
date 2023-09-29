@@ -19,8 +19,8 @@ import { PrismaClient } from "@prisma/client"
 
 export default async function page() {
     const prisma = new PrismaClient()
-    const { user } = await getServerSession(authOptions)
-    const userInfo = await prisma.user.findUnique({where: { id: user.id }})
+    const session = await getServerSession(authOptions)
+    const userInfo = await prisma.user.findUnique({where: { id: session?.user.id }})
 
 
 
@@ -30,7 +30,7 @@ export default async function page() {
         <div className='grid place-items-center h-[100dvh] w-screen text-center'>
           <div>
             <p className='font-bold text-5xl text-center mb-4'>Coming soon!</p>
-            <p>Sorry <span className='font-bold text-primary'>{userInfo.username}</span>, I'm not done with the site.</p>
+            <p>Sorry <span className='font-bold text-primary'>{userInfo?.username}</span>, I'm not done with the site.</p>
             <p>You could learn <AboutDev /> or you could <LogOutLink /></p>
           </div>
         </div>
