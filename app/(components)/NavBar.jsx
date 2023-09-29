@@ -10,7 +10,8 @@ export default function NavBar({page}) {
   return (
     // backdrop-blur-md bg-opacity-50
     <div className="text-white flex flex-col md:px-4 md:py-2 fixed w-full top-0 z-20 md:bg-black bg-opacity-95 lg:px-8 ">
-      {isMobile ? <PhoneNavBar /> : <BiggerNavBar page={page}/>}  
+      {isMobile ? <PhoneNavBar /> : <BiggerNavBar page={page}/>} 
+      {/* boundry navbarm issue occurs with isMobile*/}
     </div>
   )
 }
