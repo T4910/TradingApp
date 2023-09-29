@@ -56,10 +56,10 @@ export default function advScroll() {
         const resumeScrollVelocity = () => {scrollAmount = scrollDir}
 
         const startAutoScroll = () => {    
-            container.addEventListener('scroll', handleScroll);            
-            container.addEventListener('touchstart', recordTouchLocation);             
-            container.addEventListener('touchmove', checkHorziontalDir);
-            container.addEventListener('touchend', resumeScrollVelocity);
+            container.addEventListener('scroll', handleScroll, {passive: true});            
+            container.addEventListener('touchstart', recordTouchLocation, {passive: true});             
+            container.addEventListener('touchmove', checkHorziontalDir, {passive: true});
+            container.addEventListener('touchend', resumeScrollVelocity, {passive: true});
 
             interval = setInterval(() => container.scrollLeft += scrollAmount, time); // Adjust speed
         };
