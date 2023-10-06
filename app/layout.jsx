@@ -1,7 +1,7 @@
-'use client'
-// import Session from '../app/(components)/sessionProvider'
+// 'use client'
 import '../public/styles/global.css'
-import { SessionProvider } from 'next-auth/react';
+// import { SessionProvider } from 'next-auth/react';
+import SessionProvider from './(components)/sessionProvider'
 
 
 export default function RootLayout({ children }) {

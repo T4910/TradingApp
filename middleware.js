@@ -7,7 +7,7 @@ export async function middleware(req) {
     const {user: session} = await res.json()
 
     if (req.nextUrl.pathname.startsWith('/dashboard')) {
-        return true ? NextResponse.rewrite(req.url) : NextResponse.redirect(new URL('/signings/login', req.url))
+        return session ? NextResponse.rewrite(req.url) : NextResponse.redirect(new URL('/signings/login', req.url))
     }
 }
 
