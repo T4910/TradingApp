@@ -1,17 +1,19 @@
-'use client'
-import PhoneNavBar from './phoneNavBar'
-import BiggerNavBar from './bigNavBar'
-import useMediaQuery from "./hooks/useMediaQuery"
+import Content from './NavBarContent'
+import Links from './navLinks'
+import { getServerSession } from "next-auth"
+import { authOptions } from '../api/auth/[...nextauth]/route'
 
 
-export default function NavBar({page}) {
-  const isMobile = useMediaQuery('sm')
+
+export default function NavBar({page, links}) {
+  const { data } = getServerSession(authOptions)
 
   return (
     // backdrop-blur-md bg-opacity-50
     <div className="text-white flex flex-col md:px-4 md:py-2 fixed w-full top-0 z-20 md:bg-black bg-opacity-95 lg:px-8 ">
-      {isMobile ? <PhoneNavBar /> : <BiggerNavBar page={page}/>} 
-      {/* boundry navbarm issue occurs with isMobile*/}
+      <Content links={links} page={page} data={data}>
+        <Links links={links} data={data}/>
+      </Content>
     </div>
   )
 }
